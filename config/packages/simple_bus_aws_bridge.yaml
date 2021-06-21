@@ -1,0 +1,18 @@
+simple_bus_aws_bridge:
+  credentials:
+    key: "%env(AWS_KEY)%"
+    secret: "%env(AWS_SECRET)%"
+    region: "%env(AWS_REGION)%"
+  queue:
+    url: "%env(AWS_QUEUE_ARN)%"
+    version: "%env(AWS_QUEUE_VERSION)%"
+  topic:
+    name: "%env(AWS_ARN_TOPIC_NAME)%"
+    version: "%env(AWS_TOPIC_VERSION)%"
+    asynchronous_events:
+      - App\Domain\Event\ProductCreatedEvent
+
+simple_bus_asynchronous:
+  events:
+    strategy: 'predefined'
+    publisher_service_id: BNNVARA\SimpleBusAwsBridge\Publisher\SnsPublisher

@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+    db:
+        container_name: "catalogue-metro-db"
+        image: mysql:8.0.20
+        volumes:
+            - ./database/:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${DATABASE_NAME}
+            MYSQL_USER: ${DATABASE_USER}
+            MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+        ports:
+            - 33069:3306
+        networks:
+            - metro-network
+
+    php:
+        container_name: "catalogue-metro-app"
+        build:
+            context: .
+            dockerfile: ./php/Dockerfile
+            args:
+                TIMEZONE: ${TIMEZONE}
+        volumes:
+            - ../:/var/www/symfony/
+        ports:
+            - 9000:9000
+        networks:
+            - metro-network
+
+    nginx:
+        container_name: "catalogue-metro-webserver"
+        build:
+            context: .
+            dockerfile: ./nginx/Dockerfile
+        volumes:
+            - ../:/var/www/symfony/
+        ports:
+            - 80:80
+        networks:
+            - metro-network
+
+networks:
+    metro-network:

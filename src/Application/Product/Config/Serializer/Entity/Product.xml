@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="App\Domain\Entity\Product">
+        <property name="id" type="int" since-version="1.0"></property>
+        <property name="name" type="string" since-version="1.0"></property>
+        <property name="price" type="string" since-version="1.0"></property>
+    </class>
+</serializer>

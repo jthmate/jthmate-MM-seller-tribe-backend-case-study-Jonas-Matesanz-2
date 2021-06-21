@@ -1,3 +1,20 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+get_all_product:
+  methods: GET
+  path: /products
+  controller: App\Infrastructure\Controller\Product\GetAllProductController
+
+get_all_offers_by_client:
+  methods: GET
+  path: /catalogue/client/{id}
+  controller: App\Infrastructure\Controller\Catalogue\GetAllOffersByClientController
+
+get_all_offers_by_product:
+  methods: GET
+  path: /catalogue/product/{id}
+  controller: App\Infrastructure\Controller\Catalogue\GetAllOffersByProductController
+
+create_client_offer:
+  methods: POST
+  path: /catalogue/client/{id}
+  controller: App\Infrastructure\Controller\Catalogue\CreateCatalogueController
+

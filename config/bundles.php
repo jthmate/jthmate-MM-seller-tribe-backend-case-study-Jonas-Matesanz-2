@@ -12,4 +12,10 @@ return [
     Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
+    SimpleBus\JMSSerializerBundleBridge\SimpleBusJMSSerializerBundleBridgeBundle::class => ['all' => true],
+    SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle::class => ['all' => true],
+    SimpleBus\SymfonyBridge\SimpleBusEventBusBundle::class => ['all' => true],
+    SimpleBus\AsynchronousBundle\SimpleBusAsynchronousBundle::class => ['all' => true],
+    BNNVARA\SimpleBusAwsBridgeBundle\SimpleBusAwsBridgeBundle::class => ['all' => true],
 ];
