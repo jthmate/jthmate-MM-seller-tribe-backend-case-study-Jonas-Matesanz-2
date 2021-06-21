@@ -24,7 +24,6 @@ abstract class DoctrineRepository
 
     protected function persist(Object $entity): void
     {
-        print_r($entity);
         $this->entityManager()->persist($entity);
         $this->entityManager()->flush();
     }
